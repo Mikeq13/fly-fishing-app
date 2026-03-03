@@ -2904,9 +2904,9 @@ function TechniquesPanel({ state, river, isStillwater = false }) {
   const water = river; // alias — called 'water' in stillwater context, same value
   const techIds = useMemo(() => {
     if (isStillwater) {
-      return ((STILLWATER_TECHNIQUES[state] || {})[water] || []).filter(id => STILLWATER_TECHNIQUES_DATA[id]);
+      return ((TECHNIQUES[state] || {})[water] || []).filter(id => STILLWATER_TECHNIQUES_DATA[id]);
     }
-    return ((STILLWATER_TECHNIQUES[state] || {})[river] || []).filter(id => TECHNIQUES[id]);
+    return ((TECHNIQUES[state] || {})[river] || []).filter(id => TECHNIQUES[id]);
   }, [state, river, isStillwater]);
 
   const [activeId, setActiveId] = useState(null);
