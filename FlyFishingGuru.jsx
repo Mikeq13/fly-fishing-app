@@ -2906,7 +2906,7 @@ function TechniquesPanel({ state, river, isStillwater = false }) {
     if (isStillwater) {
       return ((STILLWATER_TECHNIQUES[state] || {})[water] || []).filter(id => STILLWATER_TECHNIQUES_DATA[id]);
     }
-    return ((RIVER_TECHNIQUES[state] || {})[river] || []).filter(id => TECHNIQUES[id]);
+    return ((STILLWATER_TECHNIQUES[state] || {})[river] || []).filter(id => TECHNIQUES[id]);
   }, [state, river, isStillwater]);
 
   const [activeId, setActiveId] = useState(null);
