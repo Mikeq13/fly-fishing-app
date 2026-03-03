@@ -2741,12 +2741,12 @@ function ConditionsPanel({ state, river }) {
 function SpeciesPanel({ state, river, speciesMap }) {
   const resolvedMap = speciesMap || RIVER_SPECIES;
   const speciesIds = useMemo(() => {
-    return ((resolvedMap[state] || {})[river] || []).filter(id => ALL_SPECIES[id]);
+    return ((resolvedMap[state] || {})[river] || []).filter(id => RIVER_SPECIES[id]);
   }, [resolvedMap, state, river]);
 
   const [activeId, setActiveId] = useState(null);
   useEffect(() => { setActiveId(speciesIds[0] || null); }, [speciesIds]);
-  const sp = ALL_SPECIES[activeId];
+  const sp = RIVER_SPECIES[activeId];
 
   return (
     <div style={{ ...S.panel(false), minHeight:260 }}>
@@ -2757,7 +2757,7 @@ function SpeciesPanel({ state, river, speciesMap }) {
         <>
           <div style={{ display:'flex', gap:'.4rem', flexWrap:'wrap', marginBottom:'1.2rem' }}>
             {speciesIds.map(id => {
-              const s = ALL_SPECIES[id];
+              const s = RIVER_SPECIES[id];
               if (!s) return null;
               const isActive = id === activeId;
               return (
